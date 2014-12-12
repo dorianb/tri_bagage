@@ -86,6 +86,9 @@
     <EmbeddedResource Include="AuthentificationForm.resx">
       <DependentUpon>AuthentificationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ParameterForm.resx">
+      <DependentUpon>ParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VolForm.resx">
       <DependentUpon>VolForm.cs</DependentUpon>
     </EmbeddedResource>

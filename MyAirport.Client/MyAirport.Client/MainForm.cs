@@ -15,13 +15,27 @@ namespace MyAirport.Client
         public MainForm()
         {
             InitializeComponent();
+
+            Program.proxy = new ServiceReference1.Service1Client("EpBasicHttp");
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        { 
+        private void button_vol_Click(object sender, EventArgs e)
+        {
             VolForm form = new VolForm();
             form.Show();
             //this.Hide();
+        }
+
+        private void button_param_Click(object sender, EventArgs e)
+        {
+            ParameterForm form = new ParameterForm();
+            form.Show();
+        }
+
+        private void button_bagage_Click(object sender, EventArgs e)
+        {
+            BagageForm form = new BagageForm();
+            form.Show();
         }
     }
 }

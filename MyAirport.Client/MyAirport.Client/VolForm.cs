@@ -16,29 +16,9 @@ namespace MyAirport.Client
 {
     public partial class VolForm : Form
     {
-        ServiceReference1.Service1Client proxy = null;
-
         public VolForm()
         {
             InitializeComponent();
-
-            //this.proxy = new ServiceReference1.Service1Client("EpBasicHttp");
-            //this.proxy = new ServiceReference1.Service1Client("EpBasicHttpUserCredential");
-            this.proxy = new ServiceReference1.Service1Client("EpBasicHttpWindowsCredential");
-
-            this.proxy.ClientCredentials.Windows.ClientCredential.Password = "";
-            this.proxy.ClientCredentials.Windows.ClientCredential.UserName = @"dorian";
-            this.proxy.ClientCredentials.Windows.ClientCredential.Domain = @"";
-
-            //CDG1
-            //this.proxy.ClientCredentials.UserName.UserName = "User1";
-            //this.proxy.ClientCredentials.UserName.Password = "1234";
-
-            //CEBCDG1
-            //this.proxy.ClientCredentials.UserName.UserName = "User2";
-            //this.proxy.ClientCredentials.UserName.Password = "1234";
-
-            var obj = this.proxy.ChannelFactory.Credentials;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,7 +36,7 @@ namespace MyAirport.Client
             try
             {
                 //proxy.MonHistorique();
-                VolDefinition vol = proxy.DetailVol((int)this.numericUpDown1.Value);
+                VolDefinition vol = Program.proxy.DetailVol((int)this.numericUpDown1.Value);
 
                 if (vol != null)
                 {
@@ -94,8 +74,8 @@ namespace MyAirport.Client
                 //TransportClientCredentialType = None
 
                 //TransportClientCredentialType = Basic
-                proxy.ClientCredentials.UserName.UserName = dlg.Domaine + @"\\" + dlg.UserName;
-                proxy.ClientCredentials.UserName.Password = dlg.Password;
+                Program.proxy.ClientCredentials.UserName.UserName = dlg.Domaine + @"\\" + dlg.UserName;
+                Program.proxy.ClientCredentials.UserName.Password = dlg.Password;
 
                 ////TransportClientCredentialType = Windows
                 //proxy.ClientCredentials.Windows.ClientCredential.Domain = dlg.Domaine;

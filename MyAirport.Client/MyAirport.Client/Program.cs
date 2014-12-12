@@ -11,6 +11,8 @@ namespace MyAirport.Client
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
+        public static ServiceReference1.Service1Client proxy = null;
+
         [STAThread]
         static void Main()
         {
