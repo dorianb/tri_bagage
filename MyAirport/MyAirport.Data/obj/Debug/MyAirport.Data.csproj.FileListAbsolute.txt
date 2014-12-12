@@ -1,0 +1,7 @@
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Data.dll
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Data.pdb
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Entities.dll
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Entities.pdb
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.csprojResolveAssemblyReference.cache
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.dll
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.pdb

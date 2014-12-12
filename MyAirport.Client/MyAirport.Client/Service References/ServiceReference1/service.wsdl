@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="EpBasicHttpUserCredential_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="EpBasicHttpWindowsCredential_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_TestFaultException_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestFaultException" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TestFaultException_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestFaultExceptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TestFaultException_PersoFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/MyAirport.Entities" name="detail" element="q1:PersoFaultException" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MesParamatres_InputMessage">
+    <wsdl:part name="parameters" element="tns:MesParamatres" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MesParamatres_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MesParamatresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateMesParametres_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMesParametres" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MonHistorique_InputMessage">
+    <wsdl:part name="parameters" element="tns:MonHistorique" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MonHistorique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MonHistoriqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateVol_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVol" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateVol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherVolsDeLaCompagnie_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDeLaCompagnie" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherVolsDeLaCompagnie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDeLaCompagnieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherVolsParDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsParDate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherVolsParDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsParDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherVolsDuJour_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDuJour" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherVolsDuJour_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDuJourResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DetailVol_InputMessage">
+    <wsdl:part name="parameters" element="tns:DetailVol" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DetailVol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetailVolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesDuVol_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuVol" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesDuVol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuVolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesParDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParDate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesParDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesDuJour_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuJour" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesDuJour_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuJourResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DetailBagage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DetailBagage" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DetailBagage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetailBagageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="TestFaultException">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TestFaultException" message="tns:IService1_TestFaultException_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TestFaultExceptionResponse" message="tns:IService1_TestFaultException_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/TestFaultExceptionPersoFaultExceptionFault" name="PersoFaultExceptionFault" message="tns:IService1_TestFaultException_PersoFaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MesParamatres">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MesParamatres" message="tns:IService1_MesParamatres_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MesParamatresResponse" message="tns:IService1_MesParamatres_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMesParametres">
+      <wsdl:input wsaw:Action="TestAction" message="tns:IService1_UpdateMesParametres_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MonHistorique">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MonHistorique" message="tns:IService1_MonHistorique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MonHistoriqueResponse" message="tns:IService1_MonHistorique_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateVol" message="tns:IService1_CreateVol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateVolResponse" message="tns:IService1_CreateVol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDeLaCompagnie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherVolsDeLaCompagnie" message="tns:IService1_RechercherVolsDeLaCompagnie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherVolsDeLaCompagnieResponse" message="tns:IService1_RechercherVolsDeLaCompagnie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsParDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherVolsParDate" message="tns:IService1_RechercherVolsParDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherVolsParDateResponse" message="tns:IService1_RechercherVolsParDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDuJour">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherVolsDuJour" message="tns:IService1_RechercherVolsDuJour_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherVolsDuJourResponse" message="tns:IService1_RechercherVolsDuJour_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetailVol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DetailVol" message="tns:IService1_DetailVol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DetailVolResponse" message="tns:IService1_DetailVol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuVol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDuVol" message="tns:IService1_RechercherBagagesDuVol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDuVolResponse" message="tns:IService1_RechercherBagagesDuVol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagagesParDate" message="tns:IService1_RechercherBagagesParDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherBagagesParDateResponse" message="tns:IService1_RechercherBagagesParDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuJour">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDuJour" message="tns:IService1_RechercherBagagesDuJour_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDuJourResponse" message="tns:IService1_RechercherBagagesDuJour_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetailBagage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DetailBagage" message="tns:IService1_DetailBagage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DetailBagageResponse" message="tns:IService1_DetailBagage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EpBasicHttp" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestFaultException">
+      <soap:operation soapAction="http://tempuri.org/IService1/TestFaultException" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PersoFaultExceptionFault">
+        <soap:fault use="literal" name="PersoFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MesParamatres">
+      <soap:operation soapAction="http://tempuri.org/IService1/MesParamatres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMesParametres">
+      <soap:operation soapAction="TestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MonHistorique">
+      <soap:operation soapAction="http://tempuri.org/IService1/MonHistorique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDeLaCompagnie">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsDeLaCompagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsParDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDuJour">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/DetailVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuJour">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailBagage">
+      <soap:operation soapAction="http://tempuri.org/IService1/DetailBagage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EpBasicHttpUserCredential" type="tns:IService1">
+    <wsp:PolicyReference URI="#EpBasicHttpUserCredential_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestFaultException">
+      <soap:operation soapAction="http://tempuri.org/IService1/TestFaultException" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PersoFaultExceptionFault">
+        <soap:fault use="literal" name="PersoFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MesParamatres">
+      <soap:operation soapAction="http://tempuri.org/IService1/MesParamatres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMesParametres">
+      <soap:operation soapAction="TestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MonHistorique">
+      <soap:operation soapAction="http://tempuri.org/IService1/MonHistorique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDeLaCompagnie">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsDeLaCompagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsParDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDuJour">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/DetailVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuJour">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailBagage">
+      <soap:operation soapAction="http://tempuri.org/IService1/DetailBagage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EpBasicHttpWindowsCredential" type="tns:IService1">
+    <wsp:PolicyReference URI="#EpBasicHttpWindowsCredential_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestFaultException">
+      <soap:operation soapAction="http://tempuri.org/IService1/TestFaultException" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PersoFaultExceptionFault">
+        <soap:fault use="literal" name="PersoFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MesParamatres">
+      <soap:operation soapAction="http://tempuri.org/IService1/MesParamatres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMesParametres">
+      <soap:operation soapAction="TestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MonHistorique">
+      <soap:operation soapAction="http://tempuri.org/IService1/MonHistorique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDeLaCompagnie">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsDeLaCompagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsParDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDuJour">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherVolsDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/DetailVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuVol">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuJour">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailBagage">
+      <soap:operation soapAction="http://tempuri.org/IService1/DetailBagage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="EpBasicHttp" binding="tns:EpBasicHttp">
+      <soap:address location="http://localhost:8734/MyAirport/Service1/" />
+    </wsdl:port>
+    <wsdl:port name="EpBasicHttpUserCredential" binding="tns:EpBasicHttpUserCredential">
+      <soap:address location="http://localhost:8735/MyAirport/Service1/" />
+    </wsdl:port>
+    <wsdl:port name="EpBasicHttpWindowsCredential" binding="tns:EpBasicHttpWindowsCredential">
+      <soap:address location="http://localhost:8736/MyAirport/Sevice1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MyAirport.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfVolDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VolDefinition" nillable="true" type="tns:VolDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVolDefinition" nillable="true" type="tns:ArrayOfVolDefinition" />
+  <xs:complexType name="VolDefinition">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Banques" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="CIE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Ligne" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolDefinition" nillable="true" type="tns:VolDefinition" />
+  <xs:complexType name="ArrayOfBagageDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BagageDefinition" nillable="true" type="tns:BagageDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBagageDefinition" nillable="true" type="tns:ArrayOfBagageDefinition" />
+  <xs:complexType name="BagageDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeIATA" type="xs:int" />
+      <xs:element minOccurs="0" name="DateCreation" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdVol" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BagageDefinition" nillable="true" type="tns:BagageDefinition" />
+</xs:schema>

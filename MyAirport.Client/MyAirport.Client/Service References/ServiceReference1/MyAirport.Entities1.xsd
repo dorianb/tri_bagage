@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MyAirport.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="PersoFaultException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="V1" type="xs:int" />
+      <xs:element minOccurs="0" name="V2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersoFaultException" nillable="true" type="tns:PersoFaultException" />
+  <xs:complexType name="Parametres">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LastConnect" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Param1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Param2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parametres" nillable="true" type="tns:Parametres" />
+  <xs:complexType name="ArrayOfHistorique">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Historique" nillable="true" type="tns:Historique" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistorique" nillable="true" type="tns:ArrayOfHistorique" />
+  <xs:complexType name="Historique">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Recherche" nillable="true" type="tns:VolCriteres" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Historique" nillable="true" type="tns:Historique" />
+  <xs:complexType name="VolCriteres">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Compagnies" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="dateDebut" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateFin" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolCriteres" nillable="true" type="tns:VolCriteres" />
+  <xs:complexType name="VolDefinition">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Banques" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="CIE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Ligne" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolDefinition" nillable="true" type="tns:VolDefinition" />
+  <xs:complexType name="ArrayOfVolDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VolDefinition" nillable="true" type="tns:VolDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVolDefinition" nillable="true" type="tns:ArrayOfVolDefinition" />
+  <xs:complexType name="ArrayOfBagageDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BagageDefinition" nillable="true" type="tns:BagageDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBagageDefinition" nillable="true" type="tns:ArrayOfBagageDefinition" />
+  <xs:complexType name="BagageDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeIATA" type="xs:int" />
+      <xs:element minOccurs="0" name="DateCreation" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdVol" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BagageDefinition" nillable="true" type="tns:BagageDefinition" />
+</xs:schema>

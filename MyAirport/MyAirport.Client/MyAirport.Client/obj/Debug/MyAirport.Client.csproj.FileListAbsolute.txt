@@ -1,0 +1,9 @@
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\bin\Debug\MyAirport.Client.exe.config
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\bin\Debug\MyAirport.Client.exe
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\bin\Debug\MyAirport.Client.pdb
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.csprojResolveAssemblyReference.cache
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.Form1.resources
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.Properties.Resources.resources
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.csproj.GenerateResource.Cache
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.exe
+C:\Users\cagnetc\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.pdb

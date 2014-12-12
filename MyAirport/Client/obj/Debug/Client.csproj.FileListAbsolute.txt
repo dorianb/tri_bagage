@@ -1,0 +1,17 @@
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\bin\Debug\Client.exe.config
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\bin\Debug\Client.exe
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\bin\Debug\Client.pdb
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\MainWindow.baml
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Views\Vols.baml
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\MainWindow.g.cs
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Views\Vols.g.cs
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\App.g.cs
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Client.g.resources
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Client.exe
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Client.pdb
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Views\Bagages.baml
+C:\Users\cagnetc\documents\visual studio 2013\Projects\MyAirport\Client\obj\Debug\Views\Bagages.g.cs
