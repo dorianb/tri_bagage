@@ -9,6 +9,7 @@ using MyAirport.Data;
 using System.Security.Permissions;
 using System.Security.Principal;
 using System.Threading;
+using System.ServiceModel.Security;
 
 namespace MyAirport.Service
 {
@@ -53,19 +54,26 @@ namespace MyAirport.Service
 
         public VolDefinition DetailVol(int id)
         {
-            VolDefinition res = null;
-
-            if (Thread.CurrentPrincipal.IsInRole("CEBCDG1"))
-            {
-                res = MyAirport.Factory.ModelsFactory.Model.GetVol(id);
-            }
-            else
-            {
-                res = MyAirport.Factory.ModelsFactory.Model.GetVol(id);
-                res.CIE = null;
-            }
-            string user = Thread.CurrentPrincipal.Identity.Name;
             this.NbAppel++;
+            VolDefinition res = null;
+            //"User: " + Thread.CurrentPrincipal.Identity.Name
+
+            try
+            {
+                if (Thread.CurrentPrincipal.IsInRole("CEBCDG1"))
+                {
+                    res = MyAirport.Factory.ModelsFactory.Model.GetVol(id);
+                }
+                else
+                {
+                    res = MyAirport.Factory.ModelsFactory.Model.GetVol(id);
+                    res.CIE = null;
+                }
+            }
+            catch (MessageSecurityException)
+            {
+               
+            }
 
             return res;
         }
@@ -121,6 +129,7 @@ namespace MyAirport.Service
             this.NbAppel++;
             return MyAirport.Factory.ModelsFactory.Model.GetBagage(id);
         }
+
         [PrincipalPermission(SecurityAction.Demand, Role="CDG1")]
         public Parametres MesParamatres()
         {
@@ -139,9 +148,10 @@ namespace MyAirport.Service
             throw new NotImplementedException();
         }
 
-        [PrincipalPermission(SecurityAction.Demand, Role = "CEB-CDG1")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "CEBCDG1")]
         public void CreateVol(VolDefinition newVol)
         {
+            throw new NotImplementedException();
         }
     }
     

@@ -1,6 +1,6 @@
 ﻿namespace MyAirport.Client
 {
-    partial class Form1
+    partial class VolForm
     {
         /// <summary>
         /// Variable nécessaire au concepteur.

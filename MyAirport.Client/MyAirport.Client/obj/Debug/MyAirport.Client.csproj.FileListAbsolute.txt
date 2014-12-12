@@ -23,6 +23,7 @@ D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirpo
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\bin\Debug\MyAirport.Client.exe
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\bin\Debug\MyAirport.Client.pdb
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.AuthentificationForm.resources
-D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.Form1.resources
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.Properties.Resources.resources
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.csproj.GenerateResource.Cache
+D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.MainForm.resources
+D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.VolForm.resources

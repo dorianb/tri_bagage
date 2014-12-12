@@ -14,21 +14,29 @@ using System.Windows.Forms;
 
 namespace MyAirport.Client
 {
-    public partial class Form1 : Form
+    public partial class VolForm : Form
     {
         ServiceReference1.Service1Client proxy = null;
-        public Form1()
+
+        public VolForm()
         {
             InitializeComponent();
 
             //this.proxy = new ServiceReference1.Service1Client("EpBasicHttp");
-            this.proxy = new ServiceReference1.Service1Client("EpBasicHttpUserCredential");
-            //this.proxy.ClientCredentials.Windows.ClientCredential.Password = "";
-            //this.proxy.ClientCredentials.Windows.ClientCredential.UserName = @"cagnetc";
-            //this.proxy.ClientCredentials.Windows.ClientCredential.Domain = @"infopb.com";
+            //this.proxy = new ServiceReference1.Service1Client("EpBasicHttpUserCredential");
+            this.proxy = new ServiceReference1.Service1Client("EpBasicHttpWindowsCredential");
 
-            this.proxy.ClientCredentials.UserName.UserName = "CDG1User1";
-            this.proxy.ClientCredentials.UserName.Password = "1234";
+            this.proxy.ClientCredentials.Windows.ClientCredential.Password = "";
+            this.proxy.ClientCredentials.Windows.ClientCredential.UserName = @"dorian";
+            this.proxy.ClientCredentials.Windows.ClientCredential.Domain = @"";
+
+            //CDG1
+            //this.proxy.ClientCredentials.UserName.UserName = "User1";
+            //this.proxy.ClientCredentials.UserName.Password = "1234";
+
+            //CEBCDG1
+            //this.proxy.ClientCredentials.UserName.UserName = "User2";
+            //this.proxy.ClientCredentials.UserName.Password = "1234";
 
             var obj = this.proxy.ChannelFactory.Credentials;
         }
@@ -45,12 +53,11 @@ namespace MyAirport.Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("UserName:" + Thread.CurrentPrincipal.Identity.Name, "Authentification");
-
             try
             {
+                //proxy.MonHistorique();
                 VolDefinition vol = proxy.DetailVol((int)this.numericUpDown1.Value);
-//                proxy.CreateVol(new VolDefinition());
+
                 if (vol != null)
                 {
                     this.textBox1.Text = vol.CIE;
