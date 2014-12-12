@@ -28,7 +28,7 @@ Le service devra mettre en place un mécanisme afin de contrôler les demandes i
 ##Développement client.
 ###Page Principale.
 
-                La page principale de l’application cliente sera constituée de 3 boutons permettant l’accès aux différentes sections de l’application, à savoir Paramétrage, Recherche Vol et Recherche Bagage.
+La page principale de l’application cliente sera constituée de 3 boutons permettant l’accès aux différentes sections de l’application, à savoir Paramétrage, Recherche Vol et Recherche Bagage.
 
 ###Section paramètres.
 
@@ -48,4 +48,4 @@ Ces éléments ayant servi de fils rouge lors des différentes séances de TP le
 
 ###Section Bagage.
 
-                Cette section présente une page de recherche de bagages en fonction des critères mis à dispositions par le service à savoir : Le code compagnie, le numéro de ligne du vol, la date du vol ou du bagage, et un template de code Iata du bagage. Si la liaison entre le résultat de recherche de la section vols et le détail d’un bagage n’est pas implémenté, il sera nécessaire de rajouter une zone de saisie pour l’id_vol. Si une information est saisie dans cette zone alors toutes autres informations de filtrage seront ignorées.
+Cette section présente une page de recherche de bagages en fonction des critères mis à dispositions par le service à savoir : Le code compagnie, le numéro de ligne du vol, la date du vol ou du bagage, et un template de code Iata du bagage. Si la liaison entre le résultat de recherche de la section vols et le détail d’un bagage n’est pas implémenté, il sera nécessaire de rajouter une zone de saisie pour l’id_vol. Si une information est saisie dans cette zone alors toutes autres informations de filtrage seront ignorées.
