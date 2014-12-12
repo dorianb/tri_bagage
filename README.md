@@ -49,3 +49,21 @@ Ces éléments ayant servi de fils rouge lors des différentes séances de TP le
 ###Section Bagage.
 
 Cette section présente une page de recherche de bagages en fonction des critères mis à dispositions par le service à savoir : Le code compagnie, le numéro de ligne du vol, la date du vol ou du bagage, et un template de code Iata du bagage. Si la liaison entre le résultat de recherche de la section vols et le détail d’un bagage n’est pas implémenté, il sera nécessaire de rajouter une zone de saisie pour l’id_vol. Si une information est saisie dans cette zone alors toutes autres informations de filtrage seront ignorées.
+
+####Requête SQL pour recherche bagage
+
+```
+select b.id_bsm, b.code_iata, b.ligee, b.typ, b.recol, b.emb, b.dat_cre, b.cnt, b.id_vol
+
+from bsm b
+
+where ....
+
+```
+
+####Exemple de formulaire de recherche de bagages
+![SearchBagage.png](https://bitbucket.org/repo/xegxBo/images/1100175571-SearchBagage.png)
+
+####Exemple de fromulaire detail bagage
+![FicheBagage.png](https://bitbucket.org/repo/xegxBo/images/767742696-FicheBagage.png)
+
