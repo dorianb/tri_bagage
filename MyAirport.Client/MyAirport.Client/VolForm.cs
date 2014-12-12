@@ -65,25 +65,5 @@ namespace MyAirport.Client
                 this.textBox3.Text = exp.Message;
             }            
         }
-
-        private void identificationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AuthentificationForm dlg = new AuthentificationForm();
-            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                //TransportClientCredentialType = None
-
-                //TransportClientCredentialType = Basic
-                Program.proxy.ClientCredentials.UserName.UserName = dlg.Domaine + @"\\" + dlg.UserName;
-                Program.proxy.ClientCredentials.UserName.Password = dlg.Password;
-
-                ////TransportClientCredentialType = Windows
-                //proxy.ClientCredentials.Windows.ClientCredential.Domain = dlg.Domaine;
-                //proxy.ClientCredentials.Windows.ClientCredential.UserName = dlg.UserName;
-                //proxy.ClientCredentials.Windows.ClientCredential.Password = dlg.Password;
-            }
-
- 
-        }
     }
 }

@@ -269,9 +269,8 @@
             this.identificationToolStripMenuItem.Name = "identificationToolStripMenuItem";
             this.identificationToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.identificationToolStripMenuItem.Text = "Identification";
-            this.identificationToolStripMenuItem.Click += new System.EventHandler(this.identificationToolStripMenuItem_Click);
             // 
-            // Form1
+            // VolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -287,7 +286,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "VolForm";
             this.Text = "Client MyAirport";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);

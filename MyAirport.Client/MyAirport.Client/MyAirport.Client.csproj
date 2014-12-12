@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthentificationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AuthentificationForm.Designer.cs">
-      <DependentUpon>AuthentificationForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="BagageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,9 +77,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AuthentificationForm.resx">
-      <DependentUpon>AuthentificationForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ParameterForm.resx">
       <DependentUpon>ParameterForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,6 +16,10 @@ namespace MyAirport.Client
         {
             InitializeComponent();
 
+            //TransportClientCredentialType = None
+            //TransportClientCredentialType = Windows
+            //TransportClientCredentialType = Basic
+            
             if(!Program.proxy.ClientCredentials.Windows.ClientCredential.UserName.Equals(""))
             {
                 textBox_login.Text = Program.proxy.ClientCredentials.Windows.ClientCredential.UserName;
@@ -53,7 +57,14 @@ namespace MyAirport.Client
                 {
                      Program.proxy = new ServiceReference1.Service1Client("EpBasicHttpUserCredential");
                      Program.proxy.ClientCredentials.UserName.Password = textBox_password.Text;
-                     Program.proxy.ClientCredentials.UserName.UserName = textBox_login.Text;
+                     if (textBox_domaine.Text.Equals(""))
+                     {
+                         Program.proxy.ClientCredentials.UserName.UserName = textBox_login.Text;
+                     }
+                     else
+                     {
+                         Program.proxy.ClientCredentials.UserName.UserName = textBox_domaine + @"\\" + textBox_login.Text;
+                     }
                      var obj = Program.proxy.ChannelFactory.Credentials;
                 }
                 this.Close();
