@@ -62,7 +62,7 @@
   <xs:element name="ArrayOfBagageDefinition" nillable="true" type="tns:ArrayOfBagageDefinition" />
   <xs:complexType name="BagageDefinition">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CodeIATA" type="xs:int" />
+      <xs:element minOccurs="0" name="CodeIATA" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DateCreation" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdVol" nillable="true" type="xs:int" />

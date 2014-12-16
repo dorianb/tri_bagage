@@ -12,7 +12,7 @@ namespace MyAirport.Entities
         [DataMember]
         public int? IdVol;
         [DataMember]
-        public int CodeIATA;
+        public string CodeIATA;
         [DataMember]
         public DateTime DateCreation;
     }

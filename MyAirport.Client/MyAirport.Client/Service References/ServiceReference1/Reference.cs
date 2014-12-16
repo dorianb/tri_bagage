@@ -424,7 +424,7 @@ namespace MyAirport.Client.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CodeIATAField;
+        private string CodeIATAField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DateCreationField;
@@ -446,12 +446,12 @@ namespace MyAirport.Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CodeIATA {
+        public string CodeIATA {
             get {
                 return this.CodeIATAField;
             }
             set {
-                if ((this.CodeIATAField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.CodeIATAField, value) != true)) {
                     this.CodeIATAField = value;
                     this.RaisePropertyChanged("CodeIATA");
                 }

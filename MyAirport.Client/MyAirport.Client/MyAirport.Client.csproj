@@ -77,6 +77,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BagageForm.resx">
+      <DependentUpon>BagageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ParameterForm.resx">
       <DependentUpon>ParameterForm.cs</DependentUpon>
     </EmbeddedResource>

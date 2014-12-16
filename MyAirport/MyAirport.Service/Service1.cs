@@ -107,6 +107,7 @@ namespace MyAirport.Service
         {
             this.NbAppel++;
             BagageCriteres b = new BagageCriteres();
+            b.idVol = idVol;
             return MyAirport.Factory.ModelsFactory.Model.GetBagages(b);
         }
 
