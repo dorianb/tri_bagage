@@ -53,7 +53,7 @@
             this.button_vol.Name = "button_vol";
             this.button_vol.Size = new System.Drawing.Size(150, 23);
             this.button_vol.TabIndex = 1;
-            this.button_vol.Text = "Vol";
+            this.button_vol.Text = "Recherche Vol";
             this.button_vol.UseVisualStyleBackColor = true;
             this.button_vol.Click += new System.EventHandler(this.button_vol_Click);
             // 
@@ -65,7 +65,7 @@
             this.button_bagage.Name = "button_bagage";
             this.button_bagage.Size = new System.Drawing.Size(150, 23);
             this.button_bagage.TabIndex = 2;
-            this.button_bagage.Text = "Bagage";
+            this.button_bagage.Text = "Recherche Bagage";
             this.button_bagage.UseVisualStyleBackColor = true;
             this.button_bagage.Click += new System.EventHandler(this.button_bagage_Click);
             // 
@@ -79,7 +79,7 @@
             this.Controls.Add(this.button_param);
             this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "MainForm";
-            this.Text = "Aéroport de Paris";
+            this.Text = "Aéroport de Paris - Client";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 

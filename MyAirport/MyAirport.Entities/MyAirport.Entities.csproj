@@ -47,6 +47,7 @@
     <Compile Include="Historique.cs" />
     <Compile Include="Parametres.cs" />
     <Compile Include="PersoFaultException.cs" />
+    <Compile Include="TraceDefinition.cs" />
     <Compile Include="VolCriteres.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

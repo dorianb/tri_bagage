@@ -21,6 +21,13 @@ namespace MyAirport.Data
         abstract public List<VolDefinition> GetVols(VolCriteres criteres);
 
         abstract public BagageDefinition GetBagage(int idBagage);
+
+        abstract public VolDefinition GetBagageVolAuDepart(int idBagage);
+        abstract public VolDefinition GetBagageVolContinuation(int idBagage);
+        abstract public VolDefinition GetBagageVolApport(int idBagage);
+
+        abstract public List<TraceDefinition> GetBagageTracabilite(int idBagage);
+
         abstract public List<BagageDefinition> GetBagages(BagageCriteres criteres);
     }
 }

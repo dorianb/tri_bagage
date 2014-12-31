@@ -115,7 +115,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(272, 13);
+            this.linkLabel1.Location = new System.Drawing.Point(193, 13);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(55, 13);
             this.linkLabel1.TabIndex = 8;
@@ -156,7 +156,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Aéroport de Paris - Serveur";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,9 +172,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label linkLabel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

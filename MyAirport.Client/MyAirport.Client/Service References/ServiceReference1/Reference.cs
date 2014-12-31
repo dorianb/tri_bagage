@@ -315,16 +315,25 @@ namespace MyAirport.Client.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] BanquesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CIEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeCIEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int JexField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LigneField;
@@ -336,6 +345,19 @@ namespace MyAirport.Client.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aer {
+            get {
+                return this.AerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AerField, value) != true)) {
+                    this.AerField = value;
+                    this.RaisePropertyChanged("Aer");
+                }
             }
         }
         
@@ -366,6 +388,19 @@ namespace MyAirport.Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodeCIE {
+            get {
+                return this.CodeCIEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeCIEField, value) != true)) {
+                    this.CodeCIEField = value;
+                    this.RaisePropertyChanged("CodeCIE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime Date {
             get {
                 return this.DateField;
@@ -387,6 +422,19 @@ namespace MyAirport.Client.ServiceReference1 {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Jex {
+            get {
+                return this.JexField;
+            }
+            set {
+                if ((this.JexField.Equals(value) != true)) {
+                    this.JexField = value;
+                    this.RaisePropertyChanged("Jex");
                 }
             }
         }
@@ -424,16 +472,46 @@ namespace MyAirport.Client.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CieeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CodeIATAField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DateCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EmbField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> IdVolField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool RecolField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MyAirport.Client.ServiceReference1.TraceDefinition[] TraceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MyAirport.Client.ServiceReference1.VolDefinition VolApportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MyAirport.Client.ServiceReference1.VolDefinition VolAuDepartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MyAirport.Client.ServiceReference1.VolDefinition VolContinuationField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -442,6 +520,19 @@ namespace MyAirport.Client.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ciee {
+            get {
+                return this.CieeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CieeField, value) != true)) {
+                    this.CieeField = value;
+                    this.RaisePropertyChanged("Ciee");
+                }
             }
         }
         
@@ -459,6 +550,19 @@ namespace MyAirport.Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Creation {
+            get {
+                return this.CreationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreationField, value) != true)) {
+                    this.CreationField = value;
+                    this.RaisePropertyChanged("Creation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime DateCreation {
             get {
                 return this.DateCreationField;
@@ -467,6 +571,32 @@ namespace MyAirport.Client.ServiceReference1 {
                 if ((this.DateCreationField.Equals(value) != true)) {
                     this.DateCreationField = value;
                     this.RaisePropertyChanged("DateCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Emb {
+            get {
+                return this.EmbField;
+            }
+            set {
+                if ((this.EmbField.Equals(value) != true)) {
+                    this.EmbField = value;
+                    this.RaisePropertyChanged("Emb");
                 }
             }
         }
@@ -493,6 +623,193 @@ namespace MyAirport.Client.ServiceReference1 {
                 if ((this.IdVolField.Equals(value) != true)) {
                     this.IdVolField = value;
                     this.RaisePropertyChanged("IdVol");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Recol {
+            get {
+                return this.RecolField;
+            }
+            set {
+                if ((this.RecolField.Equals(value) != true)) {
+                    this.RecolField = value;
+                    this.RaisePropertyChanged("Recol");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MyAirport.Client.ServiceReference1.TraceDefinition[] Trace {
+            get {
+                return this.TraceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TraceField, value) != true)) {
+                    this.TraceField = value;
+                    this.RaisePropertyChanged("Trace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Typ {
+            get {
+                return this.TypField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypField, value) != true)) {
+                    this.TypField = value;
+                    this.RaisePropertyChanged("Typ");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MyAirport.Client.ServiceReference1.VolDefinition VolApport {
+            get {
+                return this.VolApportField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VolApportField, value) != true)) {
+                    this.VolApportField = value;
+                    this.RaisePropertyChanged("VolApport");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MyAirport.Client.ServiceReference1.VolDefinition VolAuDepart {
+            get {
+                return this.VolAuDepartField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VolAuDepartField, value) != true)) {
+                    this.VolAuDepartField = value;
+                    this.RaisePropertyChanged("VolAuDepart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MyAirport.Client.ServiceReference1.VolDefinition VolContinuation {
+            get {
+                return this.VolContinuationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VolContinuationField, value) != true)) {
+                    this.VolContinuationField = value;
+                    this.RaisePropertyChanged("VolContinuation");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TraceDefinition", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
+    [System.SerializableAttribute()]
+    public partial class TraceDefinition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DatePassageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InformationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocalisationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatutField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DatePassage {
+            get {
+                return this.DatePassageField;
+            }
+            set {
+                if ((this.DatePassageField.Equals(value) != true)) {
+                    this.DatePassageField = value;
+                    this.RaisePropertyChanged("DatePassage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Informations {
+            get {
+                return this.InformationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InformationsField, value) != true)) {
+                    this.InformationsField = value;
+                    this.RaisePropertyChanged("Informations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Localisation {
+            get {
+                return this.LocalisationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocalisationField, value) != true)) {
+                    this.LocalisationField = value;
+                    this.RaisePropertyChanged("Localisation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Statut {
+            get {
+                return this.StatutField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatutField, value) != true)) {
+                    this.StatutField = value;
+                    this.RaisePropertyChanged("Statut");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
                 }
             }
         }

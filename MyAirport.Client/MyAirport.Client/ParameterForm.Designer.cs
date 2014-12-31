@@ -65,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 83);
+            this.label3.Location = new System.Drawing.Point(39, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 12;
@@ -74,16 +74,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 57);
+            this.label2.Location = new System.Drawing.Point(17, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Pwd :";
+            this.label2.Text = "Mot de passe :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 30);
+            this.label1.Location = new System.Drawing.Point(55, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 10;

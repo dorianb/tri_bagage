@@ -10,7 +10,7 @@ namespace MyAirport.Entities
     [DataContract]
     public class Historique
     {
-                [DataMember]
+        [DataMember]
         public VolCriteres Recherche;
     }
 }

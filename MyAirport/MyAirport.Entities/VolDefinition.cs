@@ -13,9 +13,15 @@ namespace MyAirport.Entities
         [DataMember]
         public string CIE;
         [DataMember]
+        public string CodeCIE;
+        [DataMember]
         public string Ligne;
         [DataMember]
         public DateTime Date;
+        [DataMember]
+        public int Jex;
+        [DataMember]
+        public string Aer;
         [DataMember]
         public List<string> Banques; 
     }

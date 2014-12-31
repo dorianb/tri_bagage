@@ -67,6 +67,7 @@ namespace MyAirport.Client
                      }
                      var obj = Program.proxy.ChannelFactory.Credentials;
                 }
+
                 this.Close();
             }
             else if (button_connexion.Text.Equals("Se déconnecter"))

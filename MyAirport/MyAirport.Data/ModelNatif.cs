@@ -303,28 +303,28 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
 
         public List<BagageDefinition> bagages = new List<BagageDefinition> 
         { 
-            new BagageDefinition{Id=1,IdVol=1,  CodeIATA=234152438, DateCreation=new DateTime(2014,10,03, 05,18,45)},
-            new BagageDefinition{Id=2,IdVol=1,  CodeIATA=234152439, DateCreation=new DateTime(2014,10,03, 05,18,52)},
-            new BagageDefinition{Id=3,IdVol=1,  CodeIATA=234152440, DateCreation=new DateTime(2014,10,03, 05,52,28)},
-            new BagageDefinition{Id=4,IdVol=1,  CodeIATA=234164259, DateCreation=new DateTime(2014,10,03, 06,08,45)},
+            /*new BagageDefinition{Id=1,IdVol=1,  CodeIATA="234152438", DateCreation=new DateTime(2014,10,03, 05,18,45)},
+            new BagageDefinition{Id=2,IdVol=1,  CodeIATA="234152439", DateCreation=new DateTime(2014,10,03, 05,18,52)},
+            new BagageDefinition{Id=3,IdVol=1,  CodeIATA="234152440", DateCreation=new DateTime(2014,10,03, 05,52,28)},
+            new BagageDefinition{Id=4,IdVol=1,  CodeIATA="234164259", DateCreation=new DateTime(2014,10,03, 06,08,45)},
 
-            new BagageDefinition{Id=5,IdVol=2,  CodeIATA=267382930, DateCreation=new DateTime(2014,10,03, 06,13,57)},
+            new BagageDefinition{Id=5,IdVol=2,  CodeIATA="267382930", DateCreation=new DateTime(2014,10,03, 06,13,57)},
 
-            new BagageDefinition{Id=17,IdVol=null, CodeIATA=127627446, DateCreation=new DateTime(2014,10,03, 05,18,45)},
+            new BagageDefinition{Id=17,IdVol=null, CodeIATA="127627446", DateCreation=new DateTime(2014,10,03, 05,18,45)},
             
-            new BagageDefinition{Id=6,IdVol=4,  CodeIATA=749394858, DateCreation=new DateTime(2014,10,04, 06,24,45)},
-            new BagageDefinition{Id=7,IdVol=4,  CodeIATA=109004844, DateCreation=new DateTime(2014,10,04, 06,12,45)},
-            new BagageDefinition{Id=8,IdVol=4,  CodeIATA=162748393, DateCreation=new DateTime(2014,10,04, 07,36,45)},
+            new BagageDefinition{Id=6,IdVol=4,  CodeIATA="749394858", DateCreation=new DateTime(2014,10,04, 06,24,45)},
+            new BagageDefinition{Id=7,IdVol=4,  CodeIATA="109004844", DateCreation=new DateTime(2014,10,04, 06,12,45)},
+            new BagageDefinition{Id=8,IdVol=4,  CodeIATA="162748393", DateCreation=new DateTime(2014,10,04, 07,36,45)},
 
-            new BagageDefinition{Id=9,IdVol=5,  CodeIATA=023480234, DateCreation=new DateTime(2014,10,04, 12,23,45)},
-            new BagageDefinition{Id=10,IdVol=5, CodeIATA=003248745, DateCreation=new DateTime(2014,10,04, 11,32,45)},
-            new BagageDefinition{Id=11,IdVol=5, CodeIATA=126783433, DateCreation=new DateTime(2014,10,04, 13,42,45)},
-            new BagageDefinition{Id=12,IdVol=5, CodeIATA=219843893, DateCreation=new DateTime(2014,10,04, 10,23,45)},
+            new BagageDefinition{Id=9,IdVol=5,  CodeIATA="023480234", DateCreation=new DateTime(2014,10,04, 12,23,45)},
+            new BagageDefinition{Id=10,IdVol=5, CodeIATA="003248745", DateCreation=new DateTime(2014,10,04, 11,32,45)},
+            new BagageDefinition{Id=11,IdVol=5, CodeIATA="126783433", DateCreation=new DateTime(2014,10,04, 13,42,45)},
+            new BagageDefinition{Id=12,IdVol=5, CodeIATA="219843893", DateCreation=new DateTime(2014,10,04, 10,23,45)},
 
-            new BagageDefinition{Id=13,IdVol=6, CodeIATA=173878732, DateCreation=new DateTime(2014,10,04, 15,52,45)},
-            new BagageDefinition{Id=14,IdVol=6, CodeIATA=320954033, DateCreation=new DateTime(2014,10,04, 12,35,45)},
-            new BagageDefinition{Id=15,IdVol=6, CodeIATA=345949590, DateCreation=new DateTime(2014,10,04, 12,12,45)},
-            new BagageDefinition{Id=16,IdVol=6, CodeIATA=128734743, DateCreation=new DateTime(2014,10,04, 13,15,45)}
+            new BagageDefinition{Id=13,IdVol=6, CodeIATA="173878732", DateCreation=new DateTime(2014,10,04, 15,52,45)},
+            new BagageDefinition{Id=14,IdVol=6, CodeIATA="320954033", DateCreation=new DateTime(2014,10,04, 12,35,45)},
+            new BagageDefinition{Id=15,IdVol=6, CodeIATA="345949590", DateCreation=new DateTime(2014,10,04, 12,12,45)},
+            new BagageDefinition{Id=16,IdVol=6, CodeIATA="128734743", DateCreation=new DateTime(2014,10,04, 13,15,45)}*/
         };
 
         #region Gestion des vols
@@ -383,6 +383,26 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
             return null;
         }
 
+        public override VolDefinition GetBagageVolAuDepart(int idBagage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override VolDefinition GetBagageVolContinuation(int idBagage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override VolDefinition GetBagageVolApport(int idBagage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<TraceDefinition> GetBagageTracabilite(int idBagage)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<BagageDefinition> GetBagages(BagageCriteres criteres)
         {
             List<BagageDefinition> res = new List<BagageDefinition>();
@@ -409,6 +429,5 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
             return false;
         }
         #endregion
-
     }
 }

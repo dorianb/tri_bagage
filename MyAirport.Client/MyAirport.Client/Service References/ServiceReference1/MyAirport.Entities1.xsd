@@ -40,10 +40,13 @@
   <xs:element name="VolCriteres" nillable="true" type="tns:VolCriteres" />
   <xs:complexType name="VolDefinition">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Aer" nillable="true" type="xs:string" />
       <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Banques" nillable="true" type="q2:ArrayOfstring" />
       <xs:element minOccurs="0" name="CIE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeCIE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Jex" type="xs:int" />
       <xs:element minOccurs="0" name="Ligne" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -62,11 +65,37 @@
   <xs:element name="ArrayOfBagageDefinition" nillable="true" type="tns:ArrayOfBagageDefinition" />
   <xs:complexType name="BagageDefinition">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Ciee" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodeIATA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Creation" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DateCreation" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emb" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdVol" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Recol" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Trace" nillable="true" type="tns:ArrayOfTraceDefinition" />
+      <xs:element minOccurs="0" name="Typ" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VolApport" nillable="true" type="tns:VolDefinition" />
+      <xs:element minOccurs="0" name="VolAuDepart" nillable="true" type="tns:VolDefinition" />
+      <xs:element minOccurs="0" name="VolContinuation" nillable="true" type="tns:VolDefinition" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BagageDefinition" nillable="true" type="tns:BagageDefinition" />
+  <xs:complexType name="ArrayOfTraceDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TraceDefinition" nillable="true" type="tns:TraceDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTraceDefinition" nillable="true" type="tns:ArrayOfTraceDefinition" />
+  <xs:complexType name="TraceDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatePassage" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Informations" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Localisation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Statut" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TraceDefinition" nillable="true" type="tns:TraceDefinition" />
 </xs:schema>

@@ -10,6 +10,7 @@ using System.Security.Permissions;
 using System.Security.Principal;
 using System.Threading;
 using System.ServiceModel.Security;
+using MyAirport.Factory;
 
 namespace MyAirport.Service
 {
@@ -82,7 +83,7 @@ namespace MyAirport.Service
         {
             this.NbAppel++;
             VolCriteres c = new VolCriteres();
-            c.Compagnies = new List<string>();
+            c.Compagnies = new List<String>();
             c.Compagnies.Add(compagnie);
             return MyAirport.Factory.ModelsFactory.Model.GetVols(c);
         }
@@ -115,6 +116,8 @@ namespace MyAirport.Service
         {
             this.NbAppel++;
             BagageCriteres b = new BagageCriteres();
+            b.DateDebut = debut;
+            b.DateFin = fin;
             return MyAirport.Factory.ModelsFactory.Model.GetBagages(b);
         }
 
@@ -128,7 +131,21 @@ namespace MyAirport.Service
         public BagageDefinition DetailBagage(int id)
         {
             this.NbAppel++;
-            return MyAirport.Factory.ModelsFactory.Model.GetBagage(id);
+            BagageDefinition res = null;
+
+            if (Thread.CurrentPrincipal.IsInRole("CDG1") || Thread.CurrentPrincipal.IsInRole("CEBCDG1"))
+            {
+                res = ModelsFactory.Model.GetBagage(id);
+                res.VolAuDepart = ModelsFactory.Model.GetBagageVolAuDepart(id);
+                res.VolContinuation = ModelsFactory.Model.GetBagageVolContinuation(id);
+                res.VolApport = ModelsFactory.Model.GetBagageVolApport(id);
+            }
+            if (Thread.CurrentPrincipal.IsInRole("CEBCDG1"))
+            {
+                res.Trace = ModelsFactory.Model.GetBagageTracabilite(id);
+            }
+
+            return res;
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role="CDG1")]

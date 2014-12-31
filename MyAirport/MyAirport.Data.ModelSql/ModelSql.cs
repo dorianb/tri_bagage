@@ -21,12 +21,12 @@ namespace MyAirport.Data
         }
         public override Entities.VolDefinition GetVol(int idVol)
         {
-            Entities.VolDefinition vol = null;
+            VolDefinition vol = null;
+
             using (SqlConnection cnx = new SqlConnection(strConnectionString))
             {
-                SqlCommand cmd = new SqlCommand(
-"select v.id_vol, c.nom_cie as Compagnie, v.lig as NumLigne, v.dhc as Date from Vol v "+
-"inner join cie c on c.id_cie = v.id_cie where id_vol = @idVol", cnx);
+                SqlCommand cmd = new SqlCommand("select v.id_vol, c.nom_cie as Compagnie, v.lig as NumLigne, v.dhc as Date from Vol v " + 
+                    "inner join cie c on c.id_cie = v.id_cie where id_vol = @idVol", cnx);
                 cmd.Parameters.AddWithValue("@idVol", idVol);
 
                 cnx.Open();
@@ -44,17 +44,17 @@ namespace MyAirport.Data
                         //vol.statut = sdr.GetInt32(sdr.GetOrdinal("Statut"));
                         //vol.idRessource = sdr.GetInt32(sdr.GetOrdinal("idRessource"));
                         //vol.origineCreation = sdr.GetInt32(sdr.GetOrdinal("OrigineDeCreation"));
-
                     }
                 }
             }
+
             return vol;
         }
 
         public override List<Entities.VolDefinition> GetVols(Entities.VolCriteres criteres)
         {
             List<VolDefinition> res = new List<VolDefinition>();
-            VolDefinition vol;
+            VolDefinition vol = null;
 
             //Le using est utilisé pour délimiter la validité de l'objet
             //On garantit ici que la connexion sera fermée, il n'y a pas besoin d'utiliser un bloc try-catch !
@@ -69,7 +69,8 @@ namespace MyAirport.Data
 
                 if (criteres.Compagnies != null)
                 {
-                    cmd.CommandText = "SELECT VOL.ID_VOL, VOL.LIG, VOL.DHC, CIE.NOM_CIE FROM VOL INNER JOIN CIE ON VOL.ID_CIE=CIE.ID_CIE WHERE CIE.NOM_CIE IN (@Compagnies);";
+                    cmd.CommandText = "select v.id_vol, c.nom_cie as Compagnie, v.lig as NumLigne, v.dhc as Date from Vol v " + 
+                        "inner join cie c on c.id_cie = v.id_cie where c.nom_cie in (@Compagnies)";
                     string compagnies = "";
                     int i=0;
                     foreach(string cie in criteres.Compagnies)
@@ -88,7 +89,8 @@ namespace MyAirport.Data
                 }
                 else
                 {
-                    cmd.CommandText = "SELECT VOL.ID_VOL, VOL.LIG, VOL.DHC, CIE.NOM_CIE FROM VOL INNER JOIN CIE ON VOL.ID_CIE=CIE.ID_CIE";
+                    cmd.CommandText = "select v.id_vol, c.nom_cie as Compagnie, v.lig as NumLigne, v.dhc as Date from Vol v " +
+                        "inner join cie c on c.id_cie = v.id_cie";
                 }
 
                 cnx.Open();
@@ -99,11 +101,11 @@ namespace MyAirport.Data
                     {
                         while (sdr.Read())
                         {
-                            vol = new VolDefinition();
-                            vol.Id = sdr.GetInt32(sdr.GetOrdinal("id_vol"));
-                            vol.CIE = sdr.GetString(sdr.GetOrdinal("NOM_CIE"));
-                            vol.Ligne = sdr.GetString(sdr.GetOrdinal("LIG"));
-                            vol.Date = sdr.GetDateTime(sdr.GetOrdinal("DHC"));
+                            vol = new Entities.VolDefinition();
+                            vol.Id = sdr.GetInt32(sdr.GetOrdinal("ID_VOL"));
+                            vol.CIE = sdr.GetString(sdr.GetOrdinal("Compagnie"));
+                            vol.Ligne = sdr.GetString(sdr.GetOrdinal("NumLigne"));
+                            vol.Date = sdr.GetDateTime(sdr.GetOrdinal("Date"));
                             res.Add(vol);
                         }
 
@@ -117,13 +119,141 @@ namespace MyAirport.Data
 
         public override Entities.BagageDefinition GetBagage(int idBagage)
         {
-            throw new NotImplementedException();
+            BagageDefinition bagage = null;
+
+            using (SqlConnection cnx = new SqlConnection(strConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select b.id_bsm, b.code_iata, b.ciee, b.typ, b.recol, b.emb, b.dat_cre, b.cre, b.id_vol, p.description " +
+                    "from bsm b left join a_pour_part a on b.id_bsm = a.id_bsm left join part_bsm p " +
+                    "on a.id_part = p.id_part where b.id_bsm=@idBsm", cnx);
+
+                cmd.Parameters.AddWithValue("@idBsm", idBagage);
+
+                cnx.Open();
+
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        bagage = new BagageDefinition();
+                        bagage.Id = sdr.GetInt32(sdr.GetOrdinal("id_bsm"));
+                        bagage.IdVol = sdr.GetInt32(sdr.GetOrdinal("id_vol"));
+                        bagage.CodeIATA = sdr.GetString(sdr.GetOrdinal("code_iata"));
+                        bagage.Ciee = sdr.GetString(sdr.GetOrdinal("ciee"));
+                        bagage.Typ = sdr.GetString(sdr.GetOrdinal("typ"));
+                        bagage.Recol = sdr.GetBoolean(sdr.GetOrdinal("recol"));
+                        bagage.Emb = sdr.GetBoolean(sdr.GetOrdinal("emb"));
+                        bagage.DateCreation = sdr.GetDateTime(sdr.GetOrdinal("dat_cre"));
+                        bagage.Creation = sdr.GetString(sdr.GetOrdinal("cre"));
+
+                        if (!sdr.IsDBNull(sdr.GetOrdinal("description")))
+                        {
+                            bagage.Description = sdr.GetString(sdr.GetOrdinal("description"));
+                        }
+                    }
+                }
+            }
+
+            return bagage;
+        }
+
+        public override VolDefinition GetBagageVolAuDepart(int idBagage)
+        {
+            VolDefinition volAuDepart = null;
+
+            using (SqlConnection cnx = new SqlConnection(strConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select v.id_vol, c.code_cie, v.lig, v.jex, b.aer_des from bsm b inner join vol v " +
+                    "on b.id_vol = v.id_vol inner join cie c on v.id_cie = c.id_cie where b.id_bsm=@idBsm", cnx);
+
+                cmd.Parameters.AddWithValue("@idBsm", idBagage);
+
+                cnx.Open();
+
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        volAuDepart = new VolDefinition();
+                        volAuDepart.Id = sdr.GetInt32(sdr.GetOrdinal("id_vol"));
+                        volAuDepart.CodeCIE = sdr.GetString(sdr.GetOrdinal("code_cie"));
+                        volAuDepart.Ligne = sdr.GetString(sdr.GetOrdinal("lig"));
+                        volAuDepart.Jex = sdr.GetInt16(sdr.GetOrdinal("jex"));
+                        volAuDepart.Aer = sdr.GetString(sdr.GetOrdinal("aer_des"));
+                    }
+                }
+            }
+
+            return volAuDepart;
+        }
+
+        public override VolDefinition GetBagageVolContinuation(int idBagage)
+        {
+            VolDefinition volContinuation = null;
+
+            using (SqlConnection cnx = new SqlConnection(strConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select b.cie, b.lig, b.jex, b.aer from bsm_vol_cnt b where b.id_bsm=@idBsm", cnx);
+
+                cmd.Parameters.AddWithValue("@idBsm", idBagage);
+
+                cnx.Open();
+
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        volContinuation = new VolDefinition();
+                        volContinuation.CodeCIE = sdr.GetString(sdr.GetOrdinal("cie"));
+                        volContinuation.Ligne = sdr.GetString(sdr.GetOrdinal("lig"));
+                        volContinuation.Jex = sdr.GetInt16(sdr.GetOrdinal("jex"));
+                        volContinuation.Aer = sdr.GetString(sdr.GetOrdinal("aer"));
+                    }
+                }
+            }
+
+            return volContinuation;
+        }
+
+        public override VolDefinition GetBagageVolApport(int idBagage)
+        {
+            VolDefinition volApport = null;
+
+            using (SqlConnection cnx = new SqlConnection(strConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select b.cie, b.lig, b.jex, b.aer from bsm_vol_apport b where b.id_bsm=@idBsm", cnx);
+
+                cmd.Parameters.AddWithValue("@idBsm", idBagage);
+
+                cnx.Open();
+
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        volApport = new VolDefinition();
+                        volApport.CodeCIE = sdr.GetString(sdr.GetOrdinal("cie"));
+                        volApport.Ligne = sdr.GetString(sdr.GetOrdinal("lig"));
+                        volApport.Jex = sdr.GetInt16(sdr.GetOrdinal("jex"));
+                        volApport.Aer = sdr.GetString(sdr.GetOrdinal("aer"));
+                    }
+                }
+            }
+
+            return volApport;
+        }
+
+        public override List<TraceDefinition> GetBagageTracabilite(int idBagage)
+        {
+            List<TraceDefinition> trace = null;
+
+            return trace;
         }
 
         public override List<Entities.BagageDefinition> GetBagages(Entities.BagageCriteres criteres)
         {
             List<Entities.BagageDefinition> bagages = new List<BagageDefinition>();
-            BagageDefinition bagage;
+            BagageDefinition bagage = null;
 
             using (SqlConnection cnx = new SqlConnection(strConnectionString))
             {
@@ -152,6 +282,7 @@ namespace MyAirport.Data
                     }
                 }
             }
+
             return bagages;
         }
     }
