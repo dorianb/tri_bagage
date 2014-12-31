@@ -429,5 +429,10 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
             return false;
         }
         #endregion
+
+        public override BagageCriteres GetBagageCriteres()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

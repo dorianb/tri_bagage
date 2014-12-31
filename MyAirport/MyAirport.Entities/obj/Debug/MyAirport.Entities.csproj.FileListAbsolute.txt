@@ -12,3 +12,4 @@ D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport\MyAirport.Enti
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.pdb
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.dll
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.pdb
+D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.csprojResolveAssemblyReference.cache

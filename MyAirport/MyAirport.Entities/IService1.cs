@@ -45,7 +45,15 @@ namespace MyAirport.Entities
 
         #region Bagages
         [OperationContract]
-        List<BagageDefinition> RechercherBagagesDuVol(int idVol);
+        BagageCriteres MesCriteresFiltre();
+        [OperationContract]
+        List<BagageDefinition> RechercherBagages(BagageCriteres critere);
+        [OperationContract]
+        List<BagageDefinition> RechercherBagagesDuVol(int? idVol);
+        [OperationContract]
+        List<BagageDefinition> RechercherBagagesDeLaCompagnie(string compagnie);
+        [OperationContract]
+        List<BagageDefinition> RechercherBagagesParIATA(string codeIATA);
         [OperationContract]
         List<BagageDefinition> RechercherBagagesParDate(DateTime debut, DateTime fin);
         [OperationContract]

@@ -55,28 +55,8 @@ namespace MyAirport.Service
 
         public VolDefinition DetailVol(int id)
         {
-            this.NbAppel++;
-            VolDefinition res = null;
-            //"User: " + Thread.CurrentPrincipal.Identity.Name
-
-            try
-            {
-                if (Thread.CurrentPrincipal.IsInRole("CEBCDG1"))
-                {
-                    res = MyAirport.Factory.ModelsFactory.Model.GetVol(id);
-                }
-                else
-                {
-                    res = MyAirport.Factory.ModelsFactory.Model.GetVol(id);
-                    res.CIE = null;
-                }
-            }
-            catch (MessageSecurityException)
-            {
-               
-            }
-
-            return res;
+            this.NbAppel++;            
+            return MyAirport.Factory.ModelsFactory.Model.GetVol(id);
         }
 
         public List<VolDefinition> RechercherVolsDeLaCompagnie(string compagnie)
@@ -104,11 +84,34 @@ namespace MyAirport.Service
             return MyAirport.Factory.ModelsFactory.Model.GetVols(c);
         }
 
-        public List<BagageDefinition> RechercherBagagesDuVol(int idVol)
+        public List<BagageDefinition> RechercherBagages(BagageCriteres criteres)
+        {
+            this.NbAppel++;
+            return ModelsFactory.Model.GetBagages(criteres);
+        }
+
+        public List<BagageDefinition> RechercherBagagesDuVol(int? idVol)
         {
             this.NbAppel++;
             BagageCriteres b = new BagageCriteres();
             b.idVol = idVol;
+            return MyAirport.Factory.ModelsFactory.Model.GetBagages(b);
+        }
+
+        public List<BagageDefinition> RechercherBagagesDeLaCompagnie(string compagnie)
+        {
+            this.NbAppel++;
+            BagageCriteres b = new BagageCriteres();
+            b.Compagnies = new List<string>();
+            b.Compagnies.Add(compagnie);
+            return MyAirport.Factory.ModelsFactory.Model.GetBagages(b);
+        }
+
+        public List<BagageDefinition> RechercherBagagesParIATA(string codeIATA)
+        {
+            this.NbAppel++;
+            BagageCriteres b = new BagageCriteres();
+            b.TemplateCodeIata = codeIATA;
             return MyAirport.Factory.ModelsFactory.Model.GetBagages(b);
         }
 
@@ -144,6 +147,16 @@ namespace MyAirport.Service
             {
                 res.Trace = ModelsFactory.Model.GetBagageTracabilite(id);
             }
+
+            return res;
+        }
+
+        public BagageCriteres MesCriteresFiltre()
+        {
+            this.NbAppel++;
+            BagageCriteres res = null;
+
+            res = ModelsFactory.Model.GetBagageCriteres();
 
             return res;
         }

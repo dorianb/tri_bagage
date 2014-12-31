@@ -76,11 +76,35 @@
   <wsdl:message name="IService1_DetailVol_OutputMessage">
     <wsdl:part name="parameters" element="tns:DetailVolResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_MesCriteresFiltre_InputMessage">
+    <wsdl:part name="parameters" element="tns:MesCriteresFiltre" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MesCriteresFiltre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MesCriteresFiltreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagages_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagages" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_RechercherBagagesDuVol_InputMessage">
     <wsdl:part name="parameters" element="tns:RechercherBagagesDuVol" />
   </wsdl:message>
   <wsdl:message name="IService1_RechercherBagagesDuVol_OutputMessage">
     <wsdl:part name="parameters" element="tns:RechercherBagagesDuVolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesDeLaCompagnie_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDeLaCompagnie" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesDeLaCompagnie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDeLaCompagnieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesParIATA_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParIATA" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RechercherBagagesParIATA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParIATAResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_RechercherBagagesParDate_InputMessage">
     <wsdl:part name="parameters" element="tns:RechercherBagagesParDate" />
@@ -137,9 +161,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DetailVol" message="tns:IService1_DetailVol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DetailVolResponse" message="tns:IService1_DetailVol_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="MesCriteresFiltre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MesCriteresFiltre" message="tns:IService1_MesCriteresFiltre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MesCriteresFiltreResponse" message="tns:IService1_MesCriteresFiltre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagages" message="tns:IService1_RechercherBagages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherBagagesResponse" message="tns:IService1_RechercherBagages_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RechercherBagagesDuVol">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDuVol" message="tns:IService1_RechercherBagagesDuVol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDuVolResponse" message="tns:IService1_RechercherBagagesDuVol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDeLaCompagnie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDeLaCompagnie" message="tns:IService1_RechercherBagagesDeLaCompagnie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherBagagesDeLaCompagnieResponse" message="tns:IService1_RechercherBagagesDeLaCompagnie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParIATA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagagesParIATA" message="tns:IService1_RechercherBagagesParIATA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechercherBagagesParIATAResponse" message="tns:IService1_RechercherBagagesParIATA_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RechercherBagagesParDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechercherBagagesParDate" message="tns:IService1_RechercherBagagesParDate_InputMessage" />
@@ -237,8 +277,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MesCriteresFiltre">
+      <soap:operation soapAction="http://tempuri.org/IService1/MesCriteresFiltre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagages">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RechercherBagagesDuVol">
       <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDeLaCompagnie">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDeLaCompagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParIATA">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesParIATA" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -358,8 +434,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MesCriteresFiltre">
+      <soap:operation soapAction="http://tempuri.org/IService1/MesCriteresFiltre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagages">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RechercherBagagesDuVol">
       <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDeLaCompagnie">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDeLaCompagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParIATA">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesParIATA" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -479,8 +591,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MesCriteresFiltre">
+      <soap:operation soapAction="http://tempuri.org/IService1/MesCriteresFiltre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagages">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RechercherBagagesDuVol">
       <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDuVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDeLaCompagnie">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesDeLaCompagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParIATA">
+      <soap:operation soapAction="http://tempuri.org/IService1/RechercherBagagesParIATA" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

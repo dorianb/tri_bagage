@@ -16,6 +16,8 @@ namespace MyAirport.Entities
         [DataMember]
         public string Ciee;
         [DataMember]
+        public string Ligne;
+        [DataMember]
         public string Typ;
         [DataMember]
         public bool Recol;
@@ -27,6 +29,8 @@ namespace MyAirport.Entities
         public string Creation;
         [DataMember]
         public string Description;
+        [DataMember]
+        public string StatutSurete;
         [DataMember]
         public VolDefinition VolAuDepart;
         [DataMember]

@@ -28,30 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox_compagnie = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_RechercherParNumeroVol = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button_RechercherParDateOuCompagnie = new System.Windows.Forms.Button();
+            this.dataGridView_listeDeVols = new System.Windows.Forms.DataGridView();
+            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code_cie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ligne = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detail_link = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_listeDeVols)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -66,9 +68,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button_RechercherParDateOuCompagnie);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.comboBox_compagnie);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.dateTimePicker2);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
@@ -98,16 +101,13 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Compagnie";
             // 
-            // comboBox1
+            // comboBox_compagnie
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "QATAR AIRWAYS"});
-            this.comboBox1.Location = new System.Drawing.Point(137, 167);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Text = "QATAR AIRWAYS";
+            this.comboBox_compagnie.FormattingEnabled = true;
+            this.comboBox_compagnie.Location = new System.Drawing.Point(137, 167);
+            this.comboBox_compagnie.Name = "comboBox_compagnie";
+            this.comboBox_compagnie.Size = new System.Drawing.Size(200, 21);
+            this.comboBox_compagnie.TabIndex = 11;
             // 
             // label2
             // 
@@ -134,7 +134,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.button_RechercherParNumeroVol);
             this.tabPage2.Controls.Add(this.numericUpDown1);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -145,15 +145,15 @@
             this.tabPage2.Text = "Par numéro de vol";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // button_RechercherParNumeroVol
             // 
-            this.button1.Location = new System.Drawing.Point(150, 133);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Chercher";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_RechercherParNumeroVol.Location = new System.Drawing.Point(150, 133);
+            this.button_RechercherParNumeroVol.Name = "button_RechercherParNumeroVol";
+            this.button_RechercherParNumeroVol.Size = new System.Drawing.Size(75, 23);
+            this.button_RechercherParNumeroVol.TabIndex = 14;
+            this.button_RechercherParNumeroVol.Text = "Rechercher";
+            this.button_RechercherParNumeroVol.UseVisualStyleBackColor = true;
+            this.button_RechercherParNumeroVol.Click += new System.EventHandler(this.button_RechercherParNumeroVol_Click);
             // 
             // numericUpDown1
             // 
@@ -181,95 +181,90 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Numéro Vol";
             // 
-            // label5
+            // button_RechercherParDateOuCompagnie
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 366);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Compagnie :";
+            this.button_RechercherParDateOuCompagnie.Location = new System.Drawing.Point(192, 223);
+            this.button_RechercherParDateOuCompagnie.Name = "button_RechercherParDateOuCompagnie";
+            this.button_RechercherParDateOuCompagnie.Size = new System.Drawing.Size(75, 23);
+            this.button_RechercherParDateOuCompagnie.TabIndex = 15;
+            this.button_RechercherParDateOuCompagnie.Text = "Rechercher";
+            this.button_RechercherParDateOuCompagnie.UseVisualStyleBackColor = true;
+            this.button_RechercherParDateOuCompagnie.Click += new System.EventHandler(this.button_RechercherParDateOuCompagnie_Click);
             // 
-            // label6
+            // dataGridView_listeDeVols
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 396);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Vol :";
+            this.dataGridView_listeDeVols.AllowUserToAddRows = false;
+            this.dataGridView_listeDeVols.AllowUserToDeleteRows = false;
+            this.dataGridView_listeDeVols.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_listeDeVols.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView_listeDeVols.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_listeDeVols.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.index,
+            this.date,
+            this.cie,
+            this.code_cie,
+            this.ligne,
+            this.detail_link});
+            this.dataGridView_listeDeVols.EnableHeadersVisualStyles = false;
+            this.dataGridView_listeDeVols.Location = new System.Drawing.Point(403, 34);
+            this.dataGridView_listeDeVols.Name = "dataGridView_listeDeVols";
+            this.dataGridView_listeDeVols.RowHeadersVisible = false;
+            this.dataGridView_listeDeVols.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_listeDeVols.Size = new System.Drawing.Size(592, 288);
+            this.dataGridView_listeDeVols.TabIndex = 16;
+            this.dataGridView_listeDeVols.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_listeDeVols_CellContentClick);
             // 
-            // label7
+            // index
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 425);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Date du Vol :";
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            this.index.DefaultCellStyle = dataGridViewCellStyle7;
+            this.index.HeaderText = "";
+            this.index.Name = "index";
             // 
-            // label8
+            // date
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 465);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Liste des banques :";
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
             // 
-            // listBox1
+            // cie
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(140, 465);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(144, 43);
-            this.listBox1.TabIndex = 12;
+            this.cie.HeaderText = "Compagnie";
+            this.cie.Name = "cie";
             // 
-            // textBox1
+            // code_cie
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 366);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 13;
+            this.code_cie.HeaderText = "Code compagnie";
+            this.code_cie.Name = "code_cie";
             // 
-            // textBox2
+            // ligne
             // 
-            this.textBox2.Location = new System.Drawing.Point(140, 393);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 20);
-            this.textBox2.TabIndex = 14;
+            this.ligne.HeaderText = "N° ligne";
+            this.ligne.Name = "ligne";
             // 
-            // textBox3
+            // detail_link
             // 
-            this.textBox3.Location = new System.Drawing.Point(140, 422);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 20);
-            this.textBox3.TabIndex = 15;
+            this.detail_link.HeaderText = "Rechercher les bagages";
+            this.detail_link.Image = global::MyAirport.Client.Properties.Resources.image_lien;
+            this.detail_link.Name = "detail_link";
             // 
             // VolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 523);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(1004, 335);
+            this.Controls.Add(this.dataGridView_listeDeVols);
             this.Controls.Add(this.tabControl1);
             this.Name = "VolForm";
             this.Text = "Recherche Vol";
+            this.Load += new System.EventHandler(this.VolForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_listeDeVols)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -279,25 +274,22 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox_compagnie;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem pt1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pt2ToolStripMenuItem;
-
+        private System.Windows.Forms.Button button_RechercherParNumeroVol;
+        private System.Windows.Forms.Button button_RechercherParDateOuCompagnie;
+        private System.Windows.Forms.DataGridView dataGridView_listeDeVols;
+        private System.Windows.Forms.DataGridViewTextBoxColumn index;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code_cie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ligne;
+        private System.Windows.Forms.DataGridViewImageColumn detail_link;
     }
 }
 

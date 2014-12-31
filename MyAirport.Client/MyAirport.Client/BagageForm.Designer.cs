@@ -31,6 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_listeBagages = new System.Windows.Forms.DataGridView();
             this.groupBox_filtrage = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker_DateDebut = new System.Windows.Forms.DateTimePicker();
+            this.label_horaire = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox_statutTemporel = new System.Windows.Forms.ComboBox();
             this.comboBox_sortieEjection = new System.Windows.Forms.ComboBox();
@@ -50,8 +52,6 @@
             this.label_volDepart = new System.Windows.Forms.Label();
             this.comboBox_VolAuDepart = new System.Windows.Forms.ComboBox();
             this.button_fermer = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +61,9 @@
             this.Rec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sortie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detail_link = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dateTimePicker_DateFin = new System.Windows.Forms.DateTimePicker();
+            this.label_dateDebut = new System.Windows.Forms.Label();
+            this.label_DateFin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_listeBagages)).BeginInit();
             this.groupBox_filtrage.SuspendLayout();
             this.SuspendLayout();
@@ -93,8 +96,11 @@
             // 
             // groupBox_filtrage
             // 
-            this.groupBox_filtrage.Controls.Add(this.dateTimePicker1);
-            this.groupBox_filtrage.Controls.Add(this.label7);
+            this.groupBox_filtrage.Controls.Add(this.label_DateFin);
+            this.groupBox_filtrage.Controls.Add(this.label_dateDebut);
+            this.groupBox_filtrage.Controls.Add(this.dateTimePicker_DateFin);
+            this.groupBox_filtrage.Controls.Add(this.dateTimePicker_DateDebut);
+            this.groupBox_filtrage.Controls.Add(this.label_horaire);
             this.groupBox_filtrage.Controls.Add(this.label6);
             this.groupBox_filtrage.Controls.Add(this.comboBox_statutTemporel);
             this.groupBox_filtrage.Controls.Add(this.comboBox_sortieEjection);
@@ -120,6 +126,22 @@
             this.groupBox_filtrage.TabStop = false;
             this.groupBox_filtrage.Text = "Filtrage";
             // 
+            // dateTimePicker_DateDebut
+            // 
+            this.dateTimePicker_DateDebut.Location = new System.Drawing.Point(112, 44);
+            this.dateTimePicker_DateDebut.Name = "dateTimePicker_DateDebut";
+            this.dateTimePicker_DateDebut.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_DateDebut.TabIndex = 20;
+            // 
+            // label_horaire
+            // 
+            this.label_horaire.AutoSize = true;
+            this.label_horaire.Location = new System.Drawing.Point(22, 27);
+            this.label_horaire.Name = "label_horaire";
+            this.label_horaire.Size = new System.Drawing.Size(88, 13);
+            this.label_horaire.TabIndex = 18;
+            this.label_horaire.Text = "Horaire théorique";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -140,6 +162,8 @@
             // comboBox_sortieEjection
             // 
             this.comboBox_sortieEjection.FormattingEnabled = true;
+            this.comboBox_sortieEjection.Items.AddRange(new object[] {
+            "Toutes"});
             this.comboBox_sortieEjection.Location = new System.Drawing.Point(505, 179);
             this.comboBox_sortieEjection.Name = "comboBox_sortieEjection";
             this.comboBox_sortieEjection.Size = new System.Drawing.Size(160, 21);
@@ -158,6 +182,8 @@
             // comboBox_EtatEjection
             // 
             this.comboBox_EtatEjection.FormattingEnabled = true;
+            this.comboBox_EtatEjection.Items.AddRange(new object[] {
+            "Tous"});
             this.comboBox_EtatEjection.Location = new System.Drawing.Point(505, 141);
             this.comboBox_EtatEjection.Name = "comboBox_EtatEjection";
             this.comboBox_EtatEjection.Size = new System.Drawing.Size(160, 21);
@@ -176,6 +202,8 @@
             // comboBox_StatutSurete
             // 
             this.comboBox_StatutSurete.FormattingEnabled = true;
+            this.comboBox_StatutSurete.Items.AddRange(new object[] {
+            "Tous"});
             this.comboBox_StatutSurete.Location = new System.Drawing.Point(505, 103);
             this.comboBox_StatutSurete.Name = "comboBox_StatutSurete";
             this.comboBox_StatutSurete.Size = new System.Drawing.Size(160, 21);
@@ -194,6 +222,8 @@
             // comboBox_TypeCreation
             // 
             this.comboBox_TypeCreation.FormattingEnabled = true;
+            this.comboBox_TypeCreation.Items.AddRange(new object[] {
+            "Tous"});
             this.comboBox_TypeCreation.Location = new System.Drawing.Point(505, 67);
             this.comboBox_TypeCreation.Name = "comboBox_TypeCreation";
             this.comboBox_TypeCreation.Size = new System.Drawing.Size(160, 21);
@@ -211,7 +241,7 @@
             // 
             // textBox_CodeIATA
             // 
-            this.textBox_CodeIATA.Location = new System.Drawing.Point(505, 29);
+            this.textBox_CodeIATA.Location = new System.Drawing.Point(505, 27);
             this.textBox_CodeIATA.Name = "textBox_CodeIATA";
             this.textBox_CodeIATA.Size = new System.Drawing.Size(133, 20);
             this.textBox_CodeIATA.TabIndex = 7;
@@ -219,7 +249,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(398, 32);
+            this.label1.Location = new System.Drawing.Point(398, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 6;
@@ -243,17 +273,15 @@
             this.button_RAZ.TabIndex = 4;
             this.button_RAZ.Text = "RAZ";
             this.button_RAZ.UseVisualStyleBackColor = true;
+            this.button_RAZ.Click += new System.EventHandler(this.button_RAZ_Click);
             // 
             // comboBox_compagnie
             // 
             this.comboBox_compagnie.FormattingEnabled = true;
-            this.comboBox_compagnie.Items.AddRange(new object[] {
-            "QATAR AIRWAYS"});
             this.comboBox_compagnie.Location = new System.Drawing.Point(112, 106);
             this.comboBox_compagnie.Name = "comboBox_compagnie";
             this.comboBox_compagnie.Size = new System.Drawing.Size(160, 21);
             this.comboBox_compagnie.TabIndex = 3;
-            this.comboBox_compagnie.Text = "QATAR AIRWAYS";
             // 
             // label_compagnie
             // 
@@ -276,6 +304,8 @@
             // comboBox_VolAuDepart
             // 
             this.comboBox_VolAuDepart.FormattingEnabled = true;
+            this.comboBox_VolAuDepart.Items.AddRange(new object[] {
+            "Tous"});
             this.comboBox_VolAuDepart.Location = new System.Drawing.Point(112, 179);
             this.comboBox_VolAuDepart.Name = "comboBox_VolAuDepart";
             this.comboBox_VolAuDepart.Size = new System.Drawing.Size(160, 21);
@@ -291,22 +321,6 @@
             this.button_fermer.Text = "Fermer";
             this.button_fermer.UseVisualStyleBackColor = true;
             this.button_fermer.Click += new System.EventHandler(this.button_fermer_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Horaire théorique";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 67);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 20;
             // 
             // dataGridViewImageColumn1
             // 
@@ -334,7 +348,7 @@
             // 
             // Loca
             // 
-            this.Loca.HeaderText = "Loca";
+            this.Loca.HeaderText = "Localisation";
             this.Loca.Name = "Loca";
             // 
             // Statut
@@ -344,7 +358,7 @@
             // 
             // Rec
             // 
-            this.Rec.HeaderText = "Rec";
+            this.Rec.HeaderText = "Recollé";
             this.Rec.Name = "Rec";
             // 
             // sortie
@@ -359,6 +373,31 @@
             this.detail_link.Name = "detail_link";
             this.detail_link.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // dateTimePicker_DateFin
+            // 
+            this.dateTimePicker_DateFin.Location = new System.Drawing.Point(112, 70);
+            this.dateTimePicker_DateFin.Name = "dateTimePicker_DateFin";
+            this.dateTimePicker_DateFin.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_DateFin.TabIndex = 21;
+            // 
+            // label_dateDebut
+            // 
+            this.label_dateDebut.AutoSize = true;
+            this.label_dateDebut.Location = new System.Drawing.Point(46, 50);
+            this.label_dateDebut.Name = "label_dateDebut";
+            this.label_dateDebut.Size = new System.Drawing.Size(60, 13);
+            this.label_dateDebut.TabIndex = 22;
+            this.label_dateDebut.Text = "Date début";
+            // 
+            // label_DateFin
+            // 
+            this.label_DateFin.AutoSize = true;
+            this.label_DateFin.Location = new System.Drawing.Point(62, 76);
+            this.label_DateFin.Name = "label_DateFin";
+            this.label_DateFin.Size = new System.Drawing.Size(44, 13);
+            this.label_DateFin.TabIndex = 23;
+            this.label_DateFin.Text = "Date fin";
+            // 
             // BagageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +408,7 @@
             this.Controls.Add(this.dataGridView_listeBagages);
             this.Name = "BagageForm";
             this.Text = "Liste des bagages";
+            this.Load += new System.EventHandler(this.BagageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_listeBagages)).EndInit();
             this.groupBox_filtrage.ResumeLayout(false);
             this.groupBox_filtrage.PerformLayout();
@@ -399,8 +439,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox_statutTemporel;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label_horaire;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_DateDebut;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn index;
         private System.Windows.Forms.DataGridViewTextBoxColumn IATA;
@@ -410,5 +450,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rec;
         private System.Windows.Forms.DataGridViewTextBoxColumn sortie;
         private System.Windows.Forms.DataGridViewImageColumn detail_link;
+        private System.Windows.Forms.Label label_DateFin;
+        private System.Windows.Forms.Label label_dateDebut;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_DateFin;
     }
 }

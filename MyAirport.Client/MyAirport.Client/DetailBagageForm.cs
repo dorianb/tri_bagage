@@ -37,25 +37,8 @@ namespace MyAirport.Client
                 label_codeIATA.Text = bagage.CodeIATA;
                 label_compagnie.Text = bagage.Ciee;
                 label_type.Text = bagage.Typ;
-
-                if (bagage.Recol)
-                {
-                    label_recolle.Text = "Oui";
-                }
-                else
-                {
-                    label_recolle.Text = "Non";
-                }
-
-                if (bagage.Emb)
-                {
-                    label_embarquable.Text = "Oui";
-                }
-                else
-                {
-                    label_embarquable.Text = "Non";
-                }
-
+                label_recolle.Text = (bagage.Recol) ? "Oui" : "Non";
+                label_embarquable.Text = (bagage.Emb) ? "Oui" : "Non";
                 label_Datecreation.Text = bagage.DateCreation.ToString();
                 label_creation.Text = bagage.Creation;
                 label_particularite.Text = bagage.Description;
@@ -90,6 +73,25 @@ namespace MyAirport.Client
                         dataGridView_tracabiliteBagage.Rows.Add(counter++, trace.DatePassage, trace.Type, trace.Localisation, trace.Statut, trace.Informations);
                     }
                 }
+            }
+        }
+
+        private void dataGridView_volsAssocies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewImageCell cell = (DataGridViewImageCell)dataGridView_volsAssocies.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                DataGridViewColumn column = dataGridView_volsAssocies.Columns[cell.ColumnIndex];
+
+                if (column.HeaderText.Equals("Lien") && (e.RowIndex == 0))
+                {
+                    VolForm detailBagage = new VolForm(Int32.Parse(cell.Description));
+                    detailBagage.Show();
+                }
+            }
+            catch (System.InvalidCastException exception)
+            {
+                Console.WriteLine(exception.Message);
             }
         }
     }

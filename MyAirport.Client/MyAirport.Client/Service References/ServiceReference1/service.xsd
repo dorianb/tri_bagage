@@ -114,17 +114,71 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="MesCriteresFiltre">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MesCriteresFiltreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="MesCriteresFiltreResult" nillable="true" type="q9:BagageCriteres" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherBagages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="critere" nillable="true" type="q10:BagageCriteres" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherBagagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesResult" nillable="true" type="q11:ArrayOfBagageDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RechercherBagagesDuVol">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idVol" type="xs:int" />
+        <xs:element minOccurs="0" name="idVol" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RechercherBagagesDuVolResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesDuVolResult" nillable="true" type="q9:ArrayOfBagageDefinition" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesDuVolResult" nillable="true" type="q12:ArrayOfBagageDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherBagagesDeLaCompagnie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compagnie" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherBagagesDeLaCompagnieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesDeLaCompagnieResult" nillable="true" type="q13:ArrayOfBagageDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherBagagesParIATA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codeIATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherBagagesParIATAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesParIATAResult" nillable="true" type="q14:ArrayOfBagageDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -139,7 +193,7 @@
   <xs:element name="RechercherBagagesParDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesParDateResult" nillable="true" type="q10:ArrayOfBagageDefinition" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesParDateResult" nillable="true" type="q15:ArrayOfBagageDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -151,7 +205,7 @@
   <xs:element name="RechercherBagagesDuJourResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesDuJourResult" nillable="true" type="q11:ArrayOfBagageDefinition" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="RechercherBagagesDuJourResult" nillable="true" type="q16:ArrayOfBagageDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -165,7 +219,7 @@
   <xs:element name="DetailBagageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="DetailBagageResult" nillable="true" type="q12:BagageDefinition" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MyAirport.Entities" minOccurs="0" name="DetailBagageResult" nillable="true" type="q17:BagageDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox_detail = new System.Windows.Forms.GroupBox();
             this.label_creation = new System.Windows.Forms.Label();
             this.label_Datecreation = new System.Windows.Forms.Label();
@@ -361,11 +361,12 @@
             this.dataGridView_volsAssocies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_volsAssocies.Size = new System.Drawing.Size(622, 121);
             this.dataGridView_volsAssocies.TabIndex = 1;
+            this.dataGridView_volsAssocies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_volsAssocies_CellContentClick);
             // 
             // vol
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            this.vol.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.vol.DefaultCellStyle = dataGridViewCellStyle1;
             this.vol.HeaderText = "";
             this.vol.Name = "vol";
             // 
@@ -436,8 +437,8 @@
             // 
             // index
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            this.index.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            this.index.DefaultCellStyle = dataGridViewCellStyle2;
             this.index.HeaderText = "";
             this.index.Name = "index";
             // 

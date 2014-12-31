@@ -57,6 +57,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfVolDefinition" nillable="true" type="tns:ArrayOfVolDefinition" />
+  <xs:complexType name="BagageCriteres">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Compagnies" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="DateDebut" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IncludeBsm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IncludeNoRecolle" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IncludePseudoBsm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IncludeRecolle" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Ligne" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SortieSuretes" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatutSuretes" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatutTemporel" nillable="true" type="q6:ArrayOfint" />
+      <xs:element minOccurs="0" name="TemplateCodeIata" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TypeTaches" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element minOccurs="0" name="idVol" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BagageCriteres" nillable="true" type="tns:BagageCriteres" />
   <xs:complexType name="ArrayOfBagageDefinition">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="BagageDefinition" nillable="true" type="tns:BagageDefinition" />
@@ -73,7 +92,9 @@
       <xs:element minOccurs="0" name="Emb" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdVol" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Ligne" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Recol" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StatutSurete" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Trace" nillable="true" type="tns:ArrayOfTraceDefinition" />
       <xs:element minOccurs="0" name="Typ" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VolApport" nillable="true" type="tns:VolDefinition" />

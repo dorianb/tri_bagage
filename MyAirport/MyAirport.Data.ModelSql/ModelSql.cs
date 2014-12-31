@@ -25,7 +25,7 @@ namespace MyAirport.Data
 
             using (SqlConnection cnx = new SqlConnection(strConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("select v.id_vol, c.nom_cie as Compagnie, v.lig as NumLigne, v.dhc as Date from Vol v " + 
+                SqlCommand cmd = new SqlCommand("select v.id_vol, c.nom_cie as Compagnie, c.code_cie, v.lig as NumLigne, v.dhc as Date from Vol v " + 
                     "inner join cie c on c.id_cie = v.id_cie where id_vol = @idVol", cnx);
                 cmd.Parameters.AddWithValue("@idVol", idVol);
 
@@ -38,6 +38,7 @@ namespace MyAirport.Data
                         vol = new Entities.VolDefinition();
                         vol.Id = sdr.GetInt32(sdr.GetOrdinal("ID_VOL"));
                         vol.CIE = sdr.GetString(sdr.GetOrdinal("Compagnie"));
+                        vol.CodeCIE = sdr.GetString(sdr.GetOrdinal("code_cie"));
                         vol.Ligne = sdr.GetString(sdr.GetOrdinal("NumLigne"));
                         vol.Date = sdr.GetDateTime(sdr.GetOrdinal("Date"));
                         //vol.parking = sdr.GetInt32(sdr.GetOrdinal("Parking"));
@@ -69,27 +70,20 @@ namespace MyAirport.Data
 
                 if (criteres.Compagnies != null)
                 {
-                    cmd.CommandText = "select v.id_vol, c.nom_cie as Compagnie, v.lig as NumLigne, v.dhc as Date from Vol v " + 
+                    cmd.CommandText = "select v.id_vol, c.nom_cie as Compagnie, c.code_cie, v.lig as NumLigne, v.dhc as Date from Vol v " + 
                         "inner join cie c on c.id_cie = v.id_cie where c.nom_cie in (@Compagnies)";
                     string compagnies = "";
                     int i=0;
                     foreach(string cie in criteres.Compagnies)
                     {
-                        if(i < criteres.Compagnies.Count-1)
-                        {
-                            compagnies = compagnies + cie + ", ";
-                        }
-                        else
-                        {
-                            compagnies = compagnies + cie;
-                        }
+                        compagnies = (i < criteres.Compagnies.Count - 1) ? compagnies + cie + ", " : compagnies + cie;
                         i++;
                     }
                     cmd.Parameters.AddWithValue("@Compagnies", compagnies);
                 }
                 else
                 {
-                    cmd.CommandText = "select v.id_vol, c.nom_cie as Compagnie, v.lig as NumLigne, v.dhc as Date from Vol v " +
+                    cmd.CommandText = "select v.id_vol, c.nom_cie as Compagnie, c.code_cie, v.lig as NumLigne, v.dhc as Date from Vol v " +
                         "inner join cie c on c.id_cie = v.id_cie";
                 }
 
@@ -104,6 +98,7 @@ namespace MyAirport.Data
                             vol = new Entities.VolDefinition();
                             vol.Id = sdr.GetInt32(sdr.GetOrdinal("ID_VOL"));
                             vol.CIE = sdr.GetString(sdr.GetOrdinal("Compagnie"));
+                            vol.CodeCIE = sdr.GetString(sdr.GetOrdinal("code_cie"));
                             vol.Ligne = sdr.GetString(sdr.GetOrdinal("NumLigne"));
                             vol.Date = sdr.GetDateTime(sdr.GetOrdinal("Date"));
                             res.Add(vol);
@@ -115,6 +110,37 @@ namespace MyAirport.Data
 
                 return res;
             }
+        }
+
+        public override BagageCriteres GetBagageCriteres()
+        {
+            BagageCriteres criteres = new BagageCriteres();
+            criteres.Compagnies = new List<string>();
+
+            using (SqlConnection cnx = new SqlConnection(strConnectionString))
+            {
+                var cmd = new SqlCommand();
+                cmd.Connection = cnx;
+
+                cmd.CommandText = "select c.nom_cie as Compagnie from cie c";
+
+                cnx.Open();
+
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            criteres.Compagnies.Add(sdr.GetString(sdr.GetOrdinal("Compagnie")));
+                        }
+
+                        sdr.NextResult();
+                    }
+                }
+            }
+
+            return criteres;
         }
 
         public override Entities.BagageDefinition GetBagage(int idBagage)
@@ -140,16 +166,12 @@ namespace MyAirport.Data
                         bagage.IdVol = sdr.GetInt32(sdr.GetOrdinal("id_vol"));
                         bagage.CodeIATA = sdr.GetString(sdr.GetOrdinal("code_iata"));
                         bagage.Ciee = sdr.GetString(sdr.GetOrdinal("ciee"));
-                        bagage.Typ = sdr.GetString(sdr.GetOrdinal("typ"));
+                        bagage.Typ = (!sdr.IsDBNull(sdr.GetOrdinal("typ"))) ? sdr.GetString(sdr.GetOrdinal("typ")) : null;
                         bagage.Recol = sdr.GetBoolean(sdr.GetOrdinal("recol"));
                         bagage.Emb = sdr.GetBoolean(sdr.GetOrdinal("emb"));
                         bagage.DateCreation = sdr.GetDateTime(sdr.GetOrdinal("dat_cre"));
                         bagage.Creation = sdr.GetString(sdr.GetOrdinal("cre"));
-
-                        if (!sdr.IsDBNull(sdr.GetOrdinal("description")))
-                        {
-                            bagage.Description = sdr.GetString(sdr.GetOrdinal("description"));
-                        }
+                        bagage.Description = (!sdr.IsDBNull(sdr.GetOrdinal("description"))) ? sdr.GetString(sdr.GetOrdinal("description")) : null;
                     }
                 }
             }
@@ -252,15 +274,55 @@ namespace MyAirport.Data
 
         public override List<Entities.BagageDefinition> GetBagages(Entities.BagageCriteres criteres)
         {
-            List<Entities.BagageDefinition> bagages = new List<BagageDefinition>();
+            List<BagageDefinition> bagages = new List<BagageDefinition>();
             BagageDefinition bagage = null;
 
             using (SqlConnection cnx = new SqlConnection(strConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("select top 10 b.id_bsm, b.code_iata, b.lige, b.typ, b.recol, b.emb, b.dat_cre, b.cnt, b.id_vol " + 
-                    "from bsm b where b.id_vol=@idVol", cnx);
-
-                cmd.Parameters.AddWithValue("@idVol", criteres.idVol);
+                var cmd = new SqlCommand();
+                cmd.Connection = cnx;
+                
+                if(criteres.idVol != null)
+                {
+                    cmd.CommandText = "select top 100 b.id_bsm, b.code_iata, b.ciee, b.lige, b.recol, b.ssur from bsm b " +
+                        "where b.id_vol = @idVol";
+                    
+                    cmd.Parameters.AddWithValue("@idVol", criteres.idVol);
+                }
+                else if((criteres.Compagnies != null) && (criteres.TemplateCodeIata != null))
+                {
+                    cmd.CommandText = "select top 100 b.id_bsm, b.code_iata, b.ciee, b.lige, b.recol, b.ssur from bsm b " +
+                        "left join vol v on b.id_vol = v.id_vol left join cie c on v.id_cie = c.id_cie where b.code_iata = @CodeIATA and c.nom_cie in (@Compagnies)";
+                    string compagnies = "";
+                    int i = 0;
+                    foreach (string cie in criteres.Compagnies)
+                    {
+                        compagnies = (i < criteres.Compagnies.Count - 1) ? compagnies + cie + ", " : compagnies + cie;
+                        i++;
+                    }
+                    cmd.Parameters.AddWithValue("@Compagnies", compagnies);
+                    cmd.Parameters.AddWithValue("@CodeIATA", criteres.TemplateCodeIata);
+                }
+                else if (criteres.Compagnies != null)
+                {                    
+                    cmd.CommandText = "select top 100 b.id_bsm, b.code_iata, b.ciee, b.lige, b.recol, b.ssur from bsm b " + 
+                        "left join vol v on b.id_vol = v.id_vol left join cie c on v.id_cie = c.id_cie where c.nom_cie in (@Compagnies)";
+                    string compagnies = "";
+                    int i=0;
+                    foreach(string cie in criteres.Compagnies)
+                    {
+                        compagnies = (i < criteres.Compagnies.Count-1) ? compagnies + cie + ", ":compagnies + cie;
+                        i++;
+                    }
+                    cmd.Parameters.AddWithValue("@Compagnies", compagnies);
+                }
+                else if(criteres.TemplateCodeIata != null)
+                {
+                    cmd.CommandText = "select top 100 b.id_bsm, b.code_iata, b.ciee, b.lige, b.recol, b.ssur from bsm b " +
+                        "where b.code_iata = @CodeIATA";
+                    
+                    cmd.Parameters.AddWithValue("@CodeIATA", criteres.TemplateCodeIata);
+                }
 
                 cnx.Open();
 
@@ -273,8 +335,10 @@ namespace MyAirport.Data
                             bagage = new BagageDefinition();
                             bagage.Id = sdr.GetInt32(sdr.GetOrdinal("id_bsm"));
                             bagage.CodeIATA = sdr.GetString(sdr.GetOrdinal("code_iata"));
-                            bagage.IdVol = sdr.GetInt32(sdr.GetOrdinal("id_vol"));
-                            bagage.DateCreation = sdr.GetDateTime(sdr.GetOrdinal("dat_cre"));
+                            bagage.Ciee = sdr.GetString(sdr.GetOrdinal("ciee"));
+                            bagage.Ligne = sdr.GetString(sdr.GetOrdinal("lige"));
+                            bagage.Recol = sdr.GetBoolean(sdr.GetOrdinal("recol"));
+                            bagage.StatutSurete = (!sdr.IsDBNull(sdr.GetOrdinal("ssur"))) ? sdr.GetString(sdr.GetOrdinal("ssur")) : null;
                             bagages.Add(bagage);
                         }
 

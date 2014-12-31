@@ -18,10 +18,10 @@ namespace MyAirport.Client
 
             Program.proxy = new ServiceReference1.Service1Client("EpBasicHttp");
 
-            /** A commenter **/
-            Program.proxy = new ServiceReference1.Service1Client("EpBasicHttpUserCredential");
+            /** Pour les tests, à commanter autrement **/
+            /*Program.proxy = new ServiceReference1.Service1Client("EpBasicHttpUserCredential");
             Program.proxy.ClientCredentials.UserName.UserName = "User1";
-            Program.proxy.ClientCredentials.UserName.Password = "1234";
+            Program.proxy.ClientCredentials.UserName.Password = "1234";*/
             /**         **/
         }
 

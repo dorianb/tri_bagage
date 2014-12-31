@@ -29,3 +29,4 @@ D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirpo
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.ParameterForm.resources
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.BagageForm.resources
 D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.DetailBagageForm.resources
+D:\Dorian\Formation\ECE\ING5\C#\MyAirport.ClientServeur\MyAirport.Client\MyAirport.Client\obj\Debug\MyAirport.Client.csprojResolveAssemblyReference.cache
