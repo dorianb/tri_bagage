@@ -5,9 +5,9 @@ Le mail devra impérativement comporter comme sujet : Ing5-ECE-2014-<NomEtudiant
 
 Le mail devra contenir 2 pièces jointes :
 
--          Le dossier contenant la solution ainsi que l’ensemble des codes sources. Il est conseillé de compresser l’ensemble du répertoire et d’en modifier l’extension (.zip en .piz) afin d’éviter les blocages par l’antivirus. Le dossier devra avoir le nom Projet-<NomEtudiant1> <NomEtudiant2>.
+* Le dossier contenant la solution ainsi que l’ensemble des codes sources. Il est conseillé de compresser l’ensemble du répertoire et d’en modifier l’extension (.zip en .piz) afin d’éviter les blocages par l’antivirus. Le dossier devra avoir le nom Projet-<NomEtudiant1> <NomEtudiant2>.
 
--          La seconde pièce jointe sera un rapport de 2-3 pages indiquant les points forts de votre projet, les méthodes ayant une forte valeur ajoutées, les bugs identifiés, ainsi qu’une procédure d’installation si nécessaire. Ce document devra avoir le nom Rapport-<NomEtudiant1> <NomEtudiant2>
+* La seconde pièce jointe sera un rapport de 2-3 pages indiquant les points forts de votre projet, les méthodes ayant une forte valeur ajoutées, les bugs identifiés, ainsi qu’une procédure d’installation si nécessaire. Ce document devra avoir le nom Rapport-<NomEtudiant1> <NomEtudiant2>
 
 #Réalisation demandé.
 #Développement serveur.
