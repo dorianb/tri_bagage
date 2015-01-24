@@ -61,9 +61,3 @@ where ....
 
 ```
 
-####Exemple de formulaire de recherche de bagages
-![SearchBagage.png](https://bitbucket.org/repo/xegxBo/images/1100175571-SearchBagage.png)
-
-####Exemple de fromulaire detail bagage
-![FicheBagage.png](https://bitbucket.org/repo/xegxBo/images/767742696-FicheBagage.png)
-
